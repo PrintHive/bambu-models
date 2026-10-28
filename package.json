@@ -1,6 +1,6 @@
 {
   "name": "@printhive/bambu-models",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bambu Lab printer models: identity and capabilities, with a source for every fact",
   "license": "MIT",
   "author": "PrintHive",
