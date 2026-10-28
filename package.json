@@ -1,0 +1,55 @@
+{
+  "name": "@printhive/bambu-models",
+  "version": "0.0.0",
+  "description": "Bambu Lab printer models: identity and capabilities, with a source for every fact",
+  "license": "MIT",
+  "author": "PrintHive",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrintHive/bambu-models.git"
+  },
+  "homepage": "https://github.com/PrintHive/bambu-models#readme",
+  "bugs": {
+    "url": "https://github.com/PrintHive/bambu-models/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "bun@1.4.0",
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint --deny-warnings",
+    "test": "bun test",
+    "test:node": "vitest run",
+    "check": "bun run lint && bun run typecheck && bun run test",
+    "prepublishOnly": "bun run check && bun run build"
+  },
+  "devDependencies": {
+    "@oxlint/plugins": "1.90.0",
+    "@types/node": "^26",
+    "oxlint": "1.90.0",
+    "typescript": "^7",
+    "vitest": "^5.0.5"
+  }
+}
